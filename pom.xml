@@ -73,8 +73,10 @@
     </dependencies>
     <modules>
         <module>example-textfield-type</module>
+        <module>example-upload</module>
     </modules>
     <build>
+        <defaultGoal>jetty:run</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
