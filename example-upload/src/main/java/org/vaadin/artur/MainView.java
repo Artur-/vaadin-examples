@@ -7,10 +7,14 @@ import java.io.FileOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.MultiFileReceiver;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.router.Route;
+
+import elemental.json.Json;
 
 @Route("")
 public class MainView extends VerticalLayout {
@@ -41,7 +45,13 @@ public class MainView extends VerticalLayout {
 
         fileList = new FileList(getUploadFolder());
         setFlexGrow(1, fileList);
-        add(upload, fileList);
+
+        Button clearUploadedList = new Button("Clear list of uploaded files",
+                e -> {
+                    upload.getElement().setPropertyJson("files",
+                            Json.createArray());
+                });
+        add(new HorizontalLayout(upload, clearUploadedList), fileList);
     }
 
     private static File getUploadFolder() {
