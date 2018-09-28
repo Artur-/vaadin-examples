@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.vaadin.artur.github_corner.GitHubCorner;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -22,6 +23,7 @@ public class MainView extends VerticalLayout {
     private FileList fileList;
 
     public MainView() {
+        add(new GitHubCorner("Artur-", "vaadin-examples"));
         setClassName("main-layout");
         setSizeFull();
         Upload upload = new Upload((MultiFileReceiver) (filename, mimeType) -> {

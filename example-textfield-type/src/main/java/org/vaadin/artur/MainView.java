@@ -1,5 +1,7 @@
 package org.vaadin.artur;
 
+import org.vaadin.artur.github_corner.GitHubCorner;
+
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
@@ -13,6 +15,7 @@ public class MainView extends VerticalLayout {
     @Override
     protected void onAttach(AttachEvent attachEvent) {
         super.onAttach(attachEvent);
+        add(new GitHubCorner("Artur-", "vaadin-examples"));
 
         setClassName("main-layout");
         TextField numberInput = new TextField("Number input");
