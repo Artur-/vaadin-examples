@@ -57,6 +57,8 @@ public class FileList extends Grid<File> {
     }
 
     private boolean isImage(File file) {
-        return file.getName().endsWith(".png");
+        return file.getName().endsWith(".png")
+                || file.getName().endsWith(".jpg")
+                || file.getName().endsWith(".gif");
     }
 }
